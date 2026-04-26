@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "admin": "Admin",
+    "logout": "Logout"
+  },
+  "hero": {
+    "scrollDown": "Scroll down",
+    "downloadResume": "Download Resume"
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Things I've built",
+    "viewAll": "View All",
+    "viewProject": "View Project",
+    "sourceCode": "Source Code",
+    "demo": "Live Demo",
+    "noProjects": "No projects yet"
+  },
+  "skills": {
+    "title": "Tech Stack",
+    "subtitle": "Technologies I work with"
+  },
+  "about": {
+    "title": "About Me"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Have a question or want to work together?",
+    "email": "Send Email",
+    "github": "GitHub",
+    "sendMessage": "Send Message",
+    "name": "Name",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending..."
+  },
+  "footer": {
+    "madeWith": "Made with",
+    "and": "&",
+    "builtBy": "by"
+  },
+  "theme": {
+    "night": "Night Mode",
+    "day": "Day Mode",
+    "toggle": "Toggle Theme"
+  },
+  "lang": {
+    "zh": "中文",
+    "en": "English",
+    "switch": "Switch Language"
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "theme": "Theme Editor",
+    "layout": "Layout",
+    "content": "Content",
+    "features": "Features",
+    "assets": "Assets",
+    "security": "Security",
+    "save": "Save",
+    "saving": "Saving...",
+    "saved": "Saved",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "back": "Back",
+    "preview": "Preview",
+    "edit": "Edit",
+    "add": "Add",
+    "upload": "Upload",
+    "welcome": "Welcome back"
+  },
+  "login": {
+    "title": "Admin Login",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Login",
+    "submitting": "Logging in...",
+    "error": "Invalid username or password",
+    "locked": "Account locked. Please try again later.",
+    "backHome": "Back to Home"
+  },
+  "setup": {
+    "title": "Initial Setup",
+    "subtitle": "Welcome! Please complete the initial configuration.",
+    "step1": "Basic Info",
+    "step2": "Admin Account",
+    "step3": "Theme",
+    "siteName": "Site Name",
+    "siteDesc": "Site Description",
+    "adminUsername": "Admin Username",
+    "adminPassword": "Admin Password",
+    "confirmPassword": "Confirm Password",
+    "defaultTheme": "Default Theme",
+    "next": "Next",
+    "prev": "Back",
+    "finish": "Complete Setup",
+    "finishing": "Setting up...",
+    "done": "Setup complete! Redirecting to login..."
+  },
+  "errors": {
+    "notFound": "Page Not Found",
+    "serverError": "Server Error",
+    "unauthorized": "Unauthorized",
+    "backHome": "Back to Home"
+  }
+}

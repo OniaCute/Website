@@ -1,0 +1,631 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────
+   CSS Variables — Night Mode (Default)
+───────────────────────────────────────── */
+:root {
+  --color-primary: #60a5fa;
+  --color-background: #000000;
+  --color-surface: #171717;
+  --color-surface-alt: #262626;
+  --color-text: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-accent: #38bdf8;
+  --color-border: rgba(96, 165, 250, 0.2);
+  --color-error: #f87171;
+  --color-success: #34d399;
+
+  --glass-opacity: 0.08;
+  --glass-blur: 16px;
+  --glass-color-rgb: 255, 255, 255;
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  --font-heading: "system-ui", sans-serif;
+  --font-body: "system-ui", sans-serif;
+  --font-mono: "ui-monospace", monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 600ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  --shadow-glow: 0 0 40px rgba(96, 165, 250, 0.15);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-float: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --btn-shadow-color: rgba(96, 165, 250, 0.3);
+  --btn-shadow-color-hover: rgba(96, 165, 250, 0.45);
+}
+
+/* Day Mode Overrides */
+[data-theme="day"] {
+  --color-primary: #f472b6;
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-alt: #fdf2f8;
+  --color-text: #18181b;
+  --color-text-muted: #52525b;
+  --color-accent: #fb7185;
+  --color-border: rgba(244, 114, 182, 0.15);
+  --color-error: #ef4444;
+  --color-success: #10b981;
+
+  --glass-opacity: 0.6;
+  --glass-blur: 12px;
+  --glass-color-rgb: 255, 255, 255;
+  --glass-border: rgba(0, 0, 0, 0.08);
+
+  --shadow-glow: 0 0 40px rgba(244, 114, 182, 0.1);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --shadow-float: 0 12px 40px rgba(0, 0, 0, 0.15);
+  --btn-shadow-color: rgba(244, 114, 182, 0.3);
+  --btn-shadow-color-hover: rgba(244, 114, 182, 0.45);
+}
+
+/* ─────────────────────────────────────────
+   Base Reset & Typography
+───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+  overflow-x: hidden;
+}
+
+/* Public site: hide and disable scrolling */
+.site-scroll-lock {
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}
+
+.site-scroll-lock main,
+.site-scroll-lock section,
+.site-scroll-lock article,
+.site-scroll-lock div {
+  overscroll-behavior: none;
+}
+
+.site-scroll-lock,
+.site-scroll-lock * {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.site-scroll-lock::-webkit-scrollbar,
+.site-scroll-lock *::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+}
+
+body.no-text-selection,
+body.no-text-selection *:not(input):not(textarea):not([contenteditable="true"]):not([contenteditable=""]) {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+body.no-text-selection input,
+body.no-text-selection textarea,
+body.no-text-selection [contenteditable="true"],
+body.no-text-selection [contenteditable=""] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+/* ─────────────────────────────────────────
+   Glassmorphism Utilities
+───────────────────────────────────────── */
+@layer components {
+  .glass {
+    background: rgba(var(--glass-color-rgb), var(--glass-opacity));
+    backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .glass-card {
+    @apply glass;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  }
+
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-float);
+  }
+
+  .glass-nav {
+    background: rgba(var(--color-background-rgb, 10, 10, 15), 0.7);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  [data-theme="day"] .glass-nav {
+    background: rgba(248, 248, 252, 0.8);
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow border */
+  .glow-border {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+                linear-gradient(135deg, var(--color-primary), var(--color-accent)) border-box;
+  }
+
+  /* Animated gradient background */
+  .bg-mesh {
+    background:
+      radial-gradient(at 20% 20%, rgba(96, 165, 250, 0.12) 0, transparent 50%),
+      radial-gradient(at 80% 80%, rgba(56, 189, 248, 0.08) 0, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(14, 165, 233, 0.05) 0, transparent 70%);
+  }
+
+  [data-theme="day"] .bg-mesh {
+    background:
+      radial-gradient(at 20% 20%, rgba(244, 114, 182, 0.08) 0, transparent 50%),
+      radial-gradient(at 80% 80%, rgba(251, 113, 133, 0.05) 0, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(244, 63, 94, 0.04) 0, transparent 70%);
+  }
+
+  /* Hide scrollbar visually, keep scrolling functional */
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+
+  html, body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(96, 165, 250, 0.3);
+    color: var(--color-text);
+  }
+
+  /* Focus ring */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* Button base */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
+  .btn-primary {
+    @apply btn;
+    background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 70%, var(--color-accent)));
+    color: white;
+    box-shadow: 0 4px 15px var(--btn-shadow-color);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 25px var(--btn-shadow-color-hover);
+  }
+
+  .btn-ghost {
+    @apply btn;
+    background: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+  }
+
+  .btn-ghost:hover {
+    background: var(--color-surface-alt);
+    color: var(--color-text);
+    border-color: var(--color-primary);
+  }
+
+  .btn-glass {
+    @apply btn glass;
+    color: var(--color-text);
+  }
+
+  .btn-glass:hover {
+    background: rgba(255, 255, 255, calc(var(--glass-opacity) * 2));
+    border-color: var(--color-primary);
+  }
+
+  /* Input base */
+  .input {
+    @apply w-full rounded-xl px-4 py-3 text-sm;
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    outline: none;
+  }
+
+  .input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent);
+  }
+
+  .input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  /* ── Select Component ── */
+  .select-label {
+    color: var(--color-text);
+    transition: color var(--transition-normal);
+  }
+
+  /* 触发按钮：继承 .input，额外补过渡 */
+  .select-trigger {
+    color: var(--color-text);
+    transition:
+      background-color var(--transition-normal),
+      border-color var(--transition-fast),
+      color var(--transition-normal),
+      box-shadow var(--transition-fast);
+  }
+
+  /* placeholder 状态：文字用 muted 色 */
+  .select-trigger--placeholder {
+    color: var(--color-text-muted);
+  }
+
+  /* 展开时强制显示聚焦样式 */
+  .select-trigger--open {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent);
+  }
+
+  /* 下拉箭头图标 */
+  .select-arrow {
+    color: var(--color-text-muted);
+    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1), color var(--transition-normal);
+  }
+
+  .select-arrow--open {
+    transform: rotate(180deg);
+    color: var(--color-primary);
+  }
+
+  /* 下拉浮层 */
+  .select-dropdown {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-float);
+    transition:
+      background-color var(--transition-normal),
+      border-color var(--transition-normal);
+  }
+
+  /* 选项默认状态 */
+  .select-option--default {
+    color: var(--color-text);
+    background: transparent;
+    transition:
+      background-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .select-option--default:hover {
+    background: var(--color-surface-alt);
+    color: var(--color-primary);
+  }
+
+  /* 选项选中状态 */
+  .select-option--selected {
+    background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+    color: var(--color-primary);
+    transition:
+      background-color var(--transition-normal),
+      color var(--transition-normal);
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium;
+    background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+    color: var(--color-primary);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+  }
+
+  /* Section heading */
+  .section-heading {
+    @apply text-center mb-16;
+  }
+  .section-heading h2 {
+    @apply text-3xl md:text-4xl font-bold mb-4;
+  }
+  .section-heading p {
+    color: var(--color-text-muted);
+    @apply text-lg;
+  }
+
+  /* Unified markdown theme for day/night */
+  .prose-themed {
+    --tw-prose-body: var(--color-text);
+    --tw-prose-headings: var(--color-text);
+    --tw-prose-links: var(--color-primary);
+    --tw-prose-bold: var(--color-text);
+    --tw-prose-counters: var(--color-text-muted);
+    --tw-prose-bullets: color-mix(in srgb, var(--color-text-muted) 70%, transparent);
+    --tw-prose-hr: var(--color-border);
+    --tw-prose-quotes: var(--color-text-muted);
+    --tw-prose-quote-borders: var(--color-border);
+    --tw-prose-captions: var(--color-text-muted);
+    --tw-prose-code: var(--color-accent);
+    --tw-prose-pre-code: var(--color-text);
+    --tw-prose-pre-bg: color-mix(in srgb, var(--color-surface-alt) 75%, transparent);
+    --tw-prose-th-borders: var(--color-border);
+    --tw-prose-td-borders: var(--color-border);
+  }
+}
+
+/* ─────────────────────────────────────────
+   Animations
+───────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(96, 165, 250, 0.5); }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to { background-position: 200% center; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-fade-up { animation: fade-up 0.6s ease-out forwards; }
+.animate-scale-in { animation: scale-in 0.4s ease-out forwards; }
+
+/* Stagger delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Light track range sliders */
+.range-light {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  background: transparent;
+}
+
+.range-light::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: #e5e7eb;
+}
+
+.range-light::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: var(--color-primary);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-primary) 40%, transparent);
+}
+
+.range-light::-moz-range-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: #e5e7eb;
+}
+
+.range-light::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: var(--color-primary);
+  border: 2px solid #ffffff;
+}
+
+/* ─────────────────────────────────────────
+   Blog & Gallery Styles
+───────────────────────────────────────── */
+
+/* Reaction bar */
+.reaction-bar {
+  width: 100%;
+}
+
+/* TOC floating sidebar */
+.toc-float {
+  position: relative;
+}
+
+.toc-float::-webkit-scrollbar {
+  width: 4px;
+}
+.toc-float::-webkit-scrollbar-track { background: transparent; }
+.toc-float::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: var(--color-border);
+}
+
+/* Gallery masonry layout */
+.gallery-masonry {
+  column-gap: 1rem;
+}
+
+/* @uiw/react-md-editor theme overrides */
+.w-md-editor {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-color: var(--color-border) !important;
+}
+
+.w-md-editor-toolbar {
+  background-color: var(--color-surface-alt) !important;
+  border-bottom-color: var(--color-border) !important;
+}
+
+.w-md-editor-toolbar-divider {
+  background-color: var(--color-border) !important;
+}
+
+.w-md-editor-toolbar li > button {
+  color: var(--color-text-muted) !important;
+}
+
+.w-md-editor-toolbar li > button:hover {
+  background-color: var(--color-surface) !important;
+  color: var(--color-primary) !important;
+}
+
+.w-md-editor-text {
+  color: var(--color-text) !important;
+}
+
+.w-md-editor-text-pre > code,
+.w-md-editor-text-input {
+  color: var(--color-text) !important;
+  caret-color: var(--color-primary) !important;
+}
+
+.w-md-editor-preview {
+  background-color: var(--color-surface) !important;
+  border-left-color: var(--color-border) !important;
+}
+
+.wmde-markdown {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  font-family: var(--font-body) !important;
+}
+
+.wmde-markdown h1,
+.wmde-markdown h2,
+.wmde-markdown h3,
+.wmde-markdown h4,
+.wmde-markdown h5,
+.wmde-markdown h6 {
+  color: var(--color-text) !important;
+  border-bottom-color: var(--color-border) !important;
+  font-family: var(--font-heading) !important;
+}
+
+.wmde-markdown blockquote {
+  border-left-color: var(--color-primary) !important;
+  color: var(--color-text-muted) !important;
+}
+
+.wmde-markdown code {
+  background-color: var(--color-surface-alt) !important;
+  color: var(--color-accent) !important;
+}
+
+.wmde-markdown pre {
+  background-color: var(--color-surface-alt) !important;
+}
+
+.wmde-markdown a {
+  color: var(--color-primary) !important;
+}
+
+.wmde-markdown table th,
+.wmde-markdown table td {
+  border-color: var(--color-border) !important;
+}
+
+.wmde-markdown table tr {
+  background-color: var(--color-surface) !important;
+}
+
+.wmde-markdown table tr:nth-child(2n) {
+  background-color: var(--color-surface-alt) !important;
+}
+
+.wmde-markdown hr {
+  background-color: var(--color-border) !important;
+}
+
+/* Grain texture overlay */
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 0;
+}

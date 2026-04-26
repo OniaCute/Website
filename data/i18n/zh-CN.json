@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "about": "关于",
+    "projects": "项目",
+    "skills": "技能",
+    "contact": "联系",
+    "admin": "管理后台",
+    "logout": "退出登录"
+  },
+  "hero": {
+    "scrollDown": "向下滚动",
+    "downloadResume": "下载简历"
+  },
+  "projects": {
+    "title": "我的项目",
+    "subtitle": "一些我构建的作品",
+    "viewAll": "查看全部",
+    "viewProject": "查看项目",
+    "sourceCode": "源代码",
+    "demo": "在线演示",
+    "noProjects": "暂无项目"
+  },
+  "skills": {
+    "title": "技术栈",
+    "subtitle": "我掌握的技能"
+  },
+  "about": {
+    "title": "关于我"
+  },
+  "contact": {
+    "title": "联系我",
+    "subtitle": "有任何问题或合作意向，欢迎随时联系",
+    "email": "发送邮件",
+    "github": "GitHub",
+    "sendMessage": "发送消息",
+    "name": "姓名",
+    "message": "消息",
+    "send": "发送",
+    "sending": "发送中..."
+  },
+  "footer": {
+    "madeWith": "用",
+    "and": "和",
+    "builtBy": "构建"
+  },
+  "theme": {
+    "night": "夜间模式",
+    "day": "日间模式",
+    "toggle": "切换主题"
+  },
+  "lang": {
+    "zh": "中文",
+    "en": "English",
+    "switch": "切换语言"
+  },
+  "admin": {
+    "dashboard": "仪表盘",
+    "theme": "主题编辑",
+    "layout": "布局管理",
+    "content": "内容管理",
+    "features": "功能开关",
+    "assets": "资源管理",
+    "security": "安全设置",
+    "save": "保存",
+    "saving": "保存中...",
+    "saved": "已保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "confirm": "确认",
+    "back": "返回",
+    "preview": "预览",
+    "edit": "编辑",
+    "add": "添加",
+    "upload": "上传",
+    "welcome": "欢迎回来"
+  },
+  "login": {
+    "title": "管理员登录",
+    "username": "用户名",
+    "password": "密码",
+    "submit": "登录",
+    "submitting": "登录中...",
+    "error": "用户名或密码错误",
+    "locked": "账户已锁定，请稍后再试",
+    "backHome": "返回首页"
+  },
+  "setup": {
+    "title": "首次初始化",
+    "subtitle": "欢迎！在开始前，请完成初始配置。",
+    "step1": "基本信息",
+    "step2": "管理员账户",
+    "step3": "主题偏好",
+    "siteName": "网站名称",
+    "siteDesc": "网站描述",
+    "adminUsername": "管理员用户名",
+    "adminPassword": "管理员密码",
+    "confirmPassword": "确认密码",
+    "defaultTheme": "默认主题",
+    "next": "下一步",
+    "prev": "上一步",
+    "finish": "完成初始化",
+    "finishing": "正在初始化...",
+    "done": "初始化完成！正在跳转到登录页..."
+  },
+  "errors": {
+    "notFound": "页面未找到",
+    "serverError": "服务器错误",
+    "unauthorized": "未授权访问",
+    "backHome": "返回首页"
+  }
+}

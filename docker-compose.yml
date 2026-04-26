@@ -1,0 +1,14 @@
+services:
+  onia-website:
+    build: .
+    container_name: onia-website
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./config.json:/app/config.json:ro
+      - ./.setup.lock:/app/.setup.lock
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped

@@ -1,0 +1,318 @@
+{
+  "version": 1,
+  "meta": {
+    "zh-CN": {
+      "siteName": "Onia",
+      "title": "Onia - 个人网站",
+      "description": "欢迎来到我的个人网站"
+    },
+    "en-US": {
+      "siteName": "Onia",
+      "title": "Onia - Personal Site",
+      "description": "Welcome to my personal website"
+    },
+    "pageTitles": {
+      "home": {
+        "zh-CN": "首页 - Onia",
+        "en-US": "Home - Onia"
+      },
+      "projects": {
+        "zh-CN": "项目 - Onia",
+        "en-US": "Projects - Onia"
+      },
+      "projectDetail": {
+        "zh-CN": "项目详情 - Onia",
+        "en-US": "Project Detail - Onia"
+      },
+      "admin": {
+        "zh-CN": "控制面板 - Onia",
+        "en-US": "Dashboard - Onia"
+      },
+      "login": {
+        "zh-CN": "登录 - Onia",
+        "en-US": "Login - Onia"
+      },
+      "setup": {
+        "zh-CN": "初始化 - Onia",
+        "en-US": "Setup - Onia"
+      },
+      "blog": {
+        "zh-CN": "博客 - Onia",
+        "en-US": "Blog - Onia"
+      },
+      "blogArticle": {
+        "zh-CN": "文章 - Onia",
+        "en-US": "Article - Onia"
+      },
+      "blogNotes": {
+        "zh-CN": "随笔 - Onia",
+        "en-US": "Notes - Onia"
+      },
+      "gallery": {
+        "zh-CN": "相册 - Onia",
+        "en-US": "Gallery - Onia"
+      }
+    },
+    "favicon": "/images/default-favicon.png",
+    "defaultLocale": "zh-CN",
+    "availableLocales": [
+      "zh-CN",
+      "en-US"
+    ]
+  },
+  "theme": {
+    "defaultMode": "night",
+    "allowUserSwitch": true,
+    "night": {
+      "colors": {
+        "primary": "#60a5fa",
+        "background": "#000000",
+        "surface": "#171717",
+        "surfaceAlt": "#262626",
+        "text": "#f8fafc",
+        "textMuted": "#94a3b8",
+        "accent": "#38bdf8",
+        "border": "rgba(96,165,250,0.2)",
+        "error": "#f87171",
+        "success": "#34d399",
+        "glassColor": "#ffffff"
+      },
+      "glass": {
+        "opacity": 0.08,
+        "blur": 16
+      },
+      "skills": {
+        "cardColor": "#60a5fa",
+        "cardOpacity": 0.16,
+        "progressColor": "#60a5fa"
+      }
+    },
+    "day": {
+      "colors": {
+        "primary": "#f472b6",
+        "background": "#ffffff",
+        "surface": "#ffffff",
+        "surfaceAlt": "#fdf2f8",
+        "text": "#18181b",
+        "textMuted": "#71717a",
+        "accent": "#fb7185",
+        "border": "rgba(244,114,182,0.15)",
+        "error": "#ef4444",
+        "success": "#10b981",
+        "glassColor": "#ffffff"
+      },
+      "glass": {
+        "opacity": 0.6,
+        "blur": 12
+      },
+      "skills": {
+        "cardColor": "#f472b6",
+        "cardOpacity": 0.12,
+        "progressColor": "#f472b6"
+      }
+    },
+    "fonts": {
+      "heading": {
+        "family": "system-ui",
+        "secondaryFamily": "",
+        "source": "system"
+      },
+      "body": {
+        "family": "system-ui",
+        "secondaryFamily": "",
+        "source": "system"
+      },
+      "mono": {
+        "family": "ui-monospace",
+        "secondaryFamily": "",
+        "source": "system"
+      }
+    }
+  },
+  "layout": {
+    "header": {
+      "visible": true,
+      "sticky": true,
+      "brandTitle": {
+        "zh-CN": "Onia",
+        "en-US": "Onia"
+      },
+      "items": [
+        {
+          "id": "about",
+          "label": {
+            "zh-CN": "关于",
+            "en-US": "About"
+          },
+          "href": "#about"
+        },
+        {
+          "id": "projects",
+          "label": {
+            "zh-CN": "项目",
+            "en-US": "Projects"
+          },
+          "href": "#projects"
+        },
+        {
+          "id": "skills",
+          "label": {
+            "zh-CN": "技能",
+            "en-US": "Skills"
+          },
+          "href": "#skills"
+        },
+        {
+          "id": "contact",
+          "label": {
+            "zh-CN": "联系",
+            "en-US": "Contact"
+          },
+          "href": "#contact"
+        },
+        {
+          "id": "blog",
+          "label": {
+            "zh-CN": "博客",
+            "en-US": "Blog"
+          },
+          "href": "/blog"
+        },
+        {
+          "id": "gallery",
+          "label": {
+            "zh-CN": "相册",
+            "en-US": "Gallery"
+          },
+          "href": "/gallery"
+        }
+      ]
+    },
+    "footer": {
+      "visible": true,
+      "copyright": {
+        "zh-CN": "© 2026 Onia. 保留所有权利。",
+        "en-US": "© 2026 Onia. All rights reserved."
+      },
+      "socialLinks": []
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "enabled": true,
+        "order": 1
+      },
+      {
+        "id": "about",
+        "enabled": true,
+        "order": 2
+      },
+      {
+        "id": "projects",
+        "enabled": true,
+        "order": 3
+      },
+      {
+        "id": "skills",
+        "enabled": true,
+        "order": 4
+      },
+      {
+        "id": "contact",
+        "enabled": true,
+        "order": 5
+      },
+      {
+        "id": "friends",
+        "enabled": true,
+        "order": 6
+      }
+    ]
+  },
+  "features": {
+    "rightClick": {
+      "default": "disabled",
+      "routes": {
+        "/admin": "allowed",
+        "/login": "allowed",
+        "/setup": "allowed"
+      }
+    },
+    "devtools": {
+      "enabled": false,
+      "default": "allowed",
+      "routes": {}
+    },
+    "textSelection": {
+      "default": "allowed"
+    },
+    "copyShortcut": {
+      "default": "allowed"
+    },
+    "animations": true,
+    "particles": false,
+    "smoothScroll": true
+  },
+  "loadingScreen": {
+    "enabled": true,
+    "title": {
+      "zh-CN": "Onia",
+      "en-US": "Onia"
+    },
+    "subtitle": {
+      "zh-CN": "正在加载...",
+      "en-US": "Loading..."
+    },
+    "showFooter": true,
+    "minDuration": 800,
+    "debugLock": false
+  },
+  "content": {
+    "hero": {
+      "zh-CN": {
+        "title": "Hi, 我是 Onia",
+        "subtitle": "全栈开发者 & 设计爱好者",
+        "description": "热爱构建优雅的产品",
+        "cta": "查看我的作品",
+        "ctaHref": "#projects"
+      },
+      "en-US": {
+        "title": "Hi, I'm Onia",
+        "subtitle": "Full-Stack Developer & Design Enthusiast",
+        "description": "Passionate about building elegant products",
+        "cta": "View my work",
+        "ctaHref": "#projects"
+      },
+      "avatar": "",
+      "background": ""
+    },
+    "about": {
+      "zh-CN": "这里是关于我的介绍内容。",
+      "en-US": "This is my about section content."
+    },
+    "announcement": {
+      "zh-CN": "",
+      "en-US": ""
+    },
+    "announcementStyle": {
+      "nightBg": "rgba(23,23,23,0.92)",
+      "dayBg": "rgba(255,255,255,0.96)"
+    },
+    "skills": [],
+    "friends": [],
+    "contact": {
+      "email": "",
+      "github": "",
+      "twitter": "",
+      "linkedin": "",
+      "wechat": "",
+      "discord": "",
+      "telegram": "",
+      "steam": "",
+      "bilibili": "",
+      "qq": "",
+      "youtube": "",
+      "instagram": ""
+    }
+  }
+}
